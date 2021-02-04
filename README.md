@@ -141,12 +141,19 @@ Inside the Server folder however, you will still find a `pom.xml` that IntelliJ 
 This won't be a comprehensive guide, but if you need to change branding you should go to these places:
 
 - build.gradle.kts (forkName, groupId, forkUrl, paperclipName)
+- Dir: `MyAirplanefork\build.gradle.kts`
 - settings.gradle.kts (forkName)
-- MyAirplaneFork-Server/pom.xml (API dependency)
-- PaperVersionFinder.java (change GitHub repo)
+- Dir: `MyAirplanefork\settings.gradle.kts`
+- MyAirplaneFork-Server\pom.xml (API dependency)
+- Dir: `MyAirplaneFork\Airplane\Airplane-Server\pom.xml`
+- PaperVersionFetcher.java (change GitHub repo)
+- Dir: `MyAirplaneFork\Airplane\Airplane-Server\src\main\java\com\destroystokyo\paper\PaperVersionFetcher.java`
 - MinecraftServer.java (getServerModName)
+- Dir: `MyAirplaneFork\Airplane\Airplane-Server\src\main\java\net\minecraft\server\MinecraftServer.java`
 - CraftServer.java (serverName)
+- Dir: `MyAirplaneFork\Airplane\Airplane-Server\src\main\java\org\bukkit\craftbukkit\CraftServer.java`
 - Versioning.java (path to pom.properties should match API)
+- Dir: `\MyAirplaneFork\Airplane\Airplane-Server\src\main\java\org\bukkit\craftbukkit\util\Versioning.java`
 
 ### Licensing
 
