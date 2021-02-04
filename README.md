@@ -145,7 +145,7 @@ This won't be a comprehensive guide, but if you need to change branding you shou
 - settings.gradle.kts (forkName)
 - Dir: `MyAirplanefork\settings.gradle.kts`
 - MyAirplaneFork-Server\pom.xml (API dependency)
-- Dir: `MyAirplaneFork\Airplane\Airplane-Server\pom.xml`
+- Dir: `MyAirplaneFork\MyAirplaneFork-Server\pom.xml`
 - PaperVersionFetcher.java (change GitHub repo)
 - Dir: `MyAirplaneFork\Airplane\Airplane-Server\src\main\java\com\destroystokyo\paper\PaperVersionFetcher.java`
 - MinecraftServer.java (getServerModName)
