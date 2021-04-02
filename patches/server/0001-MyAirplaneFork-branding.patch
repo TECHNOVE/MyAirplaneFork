@@ -5,7 +5,7 @@ Subject: [PATCH] MyAirplaneFork branding
 
 
 diff --git a/pom.xml b/pom.xml
-index 63734956a85935b5c1d105a4e4031925120c08b2..37b92213fb878d8429e6dd049fe9a151cf945618 100644
+index 2071c1f39cdf954c7dc15afcabab58cf2e340e68..70c664ad4b4a310aa44af97d5eee7fc55a338050 100644
 --- a/pom.xml
 +++ b/pom.xml
 @@ -27,8 +27,8 @@
@@ -20,25 +20,25 @@ index 63734956a85935b5c1d105a4e4031925120c08b2..37b92213fb878d8429e6dd049fe9a151
              <scope>compile</scope>
          </dependency>
 diff --git a/src/main/java/com/destroystokyo/paper/PaperVersionFetcher.java b/src/main/java/com/destroystokyo/paper/PaperVersionFetcher.java
-index bf0072b394fd71e02d3cc4a93fa3ca95ae4307c6..e9087874f52b1761b48c0e7557e187e9b3249b2e 100644
+index b9c5479e5561f8fe68ea8f94fbf4e64de8a53bf9..97c9afc2bc2a1e464eea9c3cfb68a020d945bc55 100644
 --- a/src/main/java/com/destroystokyo/paper/PaperVersionFetcher.java
 +++ b/src/main/java/com/destroystokyo/paper/PaperVersionFetcher.java
-@@ -24,8 +24,8 @@ public class PaperVersionFetcher implements VersionFetcher {
+@@ -28,8 +28,8 @@ public class PaperVersionFetcher implements VersionFetcher {
      @Nonnull
      @Override
-     public String getVersionMessage(@Nonnull String serverVersion) {
--        String[] parts = serverVersion.substring("git-Airplane-".length()).split("[-\\s]"); // Airplane // Tuinity
--        String updateMessage = getUpdateStatusMessage("TECHNOVE/Airplane", GITHUB_BRANCH_NAME, parts[0]); // Airplane // Tuinity
-+        String[] parts = serverVersion.substring("git-MyAirplaneFork-".length()).split("[-\\s]"); // MyAirplaneFork // Airplane // Tuinity
-+        String updateMessage = getUpdateStatusMessage("MyGithubName/MyAirplaneFork", GITHUB_BRANCH_NAME, parts[0]); // MyAirplaneFork // Airplane // Tuinity
-         String history = getHistory();
+     public Component getVersionMessage(@Nonnull String serverVersion) {
+-        String[] parts = serverVersion.substring("git-Airplane-".length()).split("[-\\s]"); // Tuinity
+-        final Component updateMessage = getUpdateStatusMessage("TECHNOVE/Airplane", GITHUB_BRANCH_NAME, parts[0]); // Tuinity
++        String[] parts = serverVersion.substring("git-MyAirplaneFork-".length()).split("[-\\s]"); // Tuinity // MyAirplaneFork
++        final Component updateMessage = getUpdateStatusMessage("MyGithubName/MyAirplaneFork", GITHUB_BRANCH_NAME, parts[0]); // Tuinity // MyAirplaneFork
+         final Component history = getHistory();
  
-         return history != null ? history + "\n" + updateMessage : updateMessage;
+         return history != null ? TextComponent.ofChildren(updateMessage, Component.newline(), history) : updateMessage;
 diff --git a/src/main/java/net/minecraft/server/MinecraftServer.java b/src/main/java/net/minecraft/server/MinecraftServer.java
-index 47fd400da3f938ead3a281fe1e4d24a1a3809776..3b0359a71673071a0aa00052bf122a8e4e94b87d 100644
+index 7cbbc1b1161f26f22a7f7832395af0d4a781cb1a..f588b0585c4314bf3ee956353ab9349234a650a8 100644
 --- a/src/main/java/net/minecraft/server/MinecraftServer.java
 +++ b/src/main/java/net/minecraft/server/MinecraftServer.java
-@@ -1513,7 +1513,7 @@ public abstract class MinecraftServer extends IAsyncTaskHandlerReentrant<TickTas
+@@ -1636,7 +1636,7 @@ public abstract class MinecraftServer extends IAsyncTaskHandlerReentrant<TickTas
      }
  
      public String getServerModName() {
@@ -48,10 +48,10 @@ index 47fd400da3f938ead3a281fe1e4d24a1a3809776..3b0359a71673071a0aa00052bf122a8e
  
      public CrashReport b(CrashReport crashreport) {
 diff --git a/src/main/java/org/bukkit/craftbukkit/CraftServer.java b/src/main/java/org/bukkit/craftbukkit/CraftServer.java
-index 2c4052419682b0301b987a68cd72d2719dc89e7c..3c0558de9e103fe6eb09f5685bb8367d3c2a6a40 100644
+index aec6c036ed42078a6cc3540f1f6e46a551e87a2f..345f0b69bcf9631d72a9d3b1cc655a82d5d2db95 100644
 --- a/src/main/java/org/bukkit/craftbukkit/CraftServer.java
 +++ b/src/main/java/org/bukkit/craftbukkit/CraftServer.java
-@@ -231,7 +231,7 @@ import javax.annotation.Nullable; // Paper
+@@ -232,7 +232,7 @@ import javax.annotation.Nullable; // Paper
  import javax.annotation.Nonnull; // Paper
  
  public final class CraftServer implements Server {
@@ -61,7 +61,7 @@ index 2c4052419682b0301b987a68cd72d2719dc89e7c..3c0558de9e103fe6eb09f5685bb8367d
      private final String bukkitVersion = Versioning.getBukkitVersion();
      private final Logger logger = Logger.getLogger("Minecraft");
 diff --git a/src/main/java/org/bukkit/craftbukkit/util/Versioning.java b/src/main/java/org/bukkit/craftbukkit/util/Versioning.java
-index 1788d79ea489e446d3d9f541693d4ba3dfc26015..99ce1c691407a8220bc1cbbcda42b65863106d59 100644
+index 1788d79ea489e446d3d9f541693d4ba3dfc26015..0e18f778a434b8b22bb595f06cc6ef7833e64489 100644
 --- a/src/main/java/org/bukkit/craftbukkit/util/Versioning.java
 +++ b/src/main/java/org/bukkit/craftbukkit/util/Versioning.java
 @@ -11,7 +11,7 @@ public final class Versioning {
@@ -69,7 +69,7 @@ index 1788d79ea489e446d3d9f541693d4ba3dfc26015..99ce1c691407a8220bc1cbbcda42b658
          String result = "Unknown-Version";
  
 -        InputStream stream = Bukkit.class.getClassLoader().getResourceAsStream("META-INF/maven/gg.airplane/airplane-api/pom.properties"); // Tuinity // Airplane
-+        InputStream stream = Bukkit.class.getClassLoader().getResourceAsStream("META-INF/maven/com.mygroupid/myairplanefork-api/pom.properties"); // Tuinity // Airplane // MyAirplaneFork
++        InputStream stream = Bukkit.class.getClassLoader().getResourceAsStream("META-INF/maven/com.mygroupid/myairplanefork-api/pom.properties"); // Tuinity // Airplane
          Properties properties = new Properties();
  
          if (stream != null) {
