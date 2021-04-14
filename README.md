@@ -8,11 +8,14 @@ Fork this repository to your own repo, then clone it locally. Once you've cloned
 ```bash
 cd MyAirplaneFork
 ./gradlew applyPatches
-# or on windows
+# or on windows (STRONGLY DISCOURAGED - see below)
 gradlew.bat applyPatches
 ```
 
 This will set up the entire project, as once it's done everything will be ready to go!
+
+### Windows
+It is **strongly discouraged** to use Windows directly for forking and patching airplane. The guide (at the bottom of this README.md) in this document will detail how to use Windows Subsystem for Linux (WSL) to fork Airplane using Windows.
 
 ## Working on the fork
 
@@ -151,3 +154,60 @@ This won't be a comprehensive guide, but if you need to change branding you shou
 ### Licensing
 
 This repository is licensed under MIT, however I'm fairly convinced due to the GPL licensing of upstreams that forks need to be licensed GPL as well.
+
+# Step-by-Step Guide
+This is a step-by-step guide on how to fork Airplane. You should still read the above information to get to grips with how to patch the plugin, however.
+
+## 1. Setting up WSL
+This guide will require you to use Windows Subsystem for Linux (or, just Linux). We'll be using the Debian distribution, but if you are more comfortable using a different distribution, such as Ubuntu or CentOS, this guide should still work (on CentOS, replace apt commands with yum).
+
+### Enable WSL
+Enable Windows Subsystem for Linux by going to **Turn Windows features on or off** in the Control Panel (or search for it). Select the [x] Checkbox beside `Windows Subsystem for Linux`, and click OK. You will likely need to restart your computer to fully enable this feature.
+### Store Package
+Go to the Windows Store and get the **Debian** package, or click [here](https://www.microsoft.com/en-us/p/debian/9msvkqc78pk6#activetab=pivot:overviewtab).
+### Open Debian
+From the start menu, type 'debian' to open the Debian console, or type 'debian' in Command Manager.
+
+## 2. (WSL) Install & Setup Dependencies
+After setting up Debian, run the following commands:
+
+### Install Dependencies
+```bash
+$ apt update
+$ apt install -y curl git default-jdk
+```
+### Configure Git
+If you use GitHub/GitLab you should make your user.email the primary email of that account. 
+```bash
+$ git config --global user.name "YOUR NAME"
+$ git config --global user.email your@email.com
+```
+
+## 3. Cloning MyAirplaneFork
+You should now fork this repository.
+```bash
+$ cd ~ # Optional, takes you to your home directory
+$ git clone https://github.com/TECHNOVE/MyAirplaneFork.git my-fork-directory
+```
+
+Once the repository has finished downloading, enter it.
+```bash
+$ cd my-fork-directory
+```
+
+## 3. Apply the patches
+Apply the default patches. This will download the Minecraft server, decompile and de-obfuscate the code using the mappings (automatically provided), then apply the various patches from Airplane, Tuinity, Paper, Spigot and Bukkit/CraftBukkit.
+
+This is quite an intensive operation, and can take several minutes (up to 30 in some cases) to fully apply.
+
+```bash
+$ ./gradlew applyPatches
+```
+
+## 4. Done!
+You should now have a complete version of Airplane, forked and ready to go on your codebase.
+
+### Patching with IntelliJ IDEA
+If using IntelliJ IDEA, you should be running at least **2021.1** to have full Windows Subsystem for Linux support. If you followed the guide verbatim, your code will be at `\\wsl$\Debian\home\<username>\my-fork-directory`.
+
+IntelliJ IDEA 2021.1 added support natively for WSL projects - without this version, the Gradle sidebar and potential indexing may fail.
