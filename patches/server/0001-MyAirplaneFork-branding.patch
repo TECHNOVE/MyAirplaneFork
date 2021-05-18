@@ -5,10 +5,10 @@ Subject: [PATCH] MyAirplaneFork branding
 
 
 diff --git a/pom.xml b/pom.xml
-index 2071c1f39cdf954c7dc15afcabab58cf2e340e68..70c664ad4b4a310aa44af97d5eee7fc55a338050 100644
+index c917f825378dd16a329105b4e7fcc8882755bc5a..840855427e92b08de3ebcc23a8a5aeda10b17eff 100644
 --- a/pom.xml
 +++ b/pom.xml
-@@ -27,8 +27,8 @@
+@@ -39,8 +39,8 @@
  
      <dependencies>
          <dependency>
@@ -35,10 +35,10 @@ index b9c5479e5561f8fe68ea8f94fbf4e64de8a53bf9..97c9afc2bc2a1e464eea9c3cfb68a020
  
          return history != null ? TextComponent.ofChildren(updateMessage, Component.newline(), history) : updateMessage;
 diff --git a/src/main/java/net/minecraft/server/MinecraftServer.java b/src/main/java/net/minecraft/server/MinecraftServer.java
-index 7cbbc1b1161f26f22a7f7832395af0d4a781cb1a..f588b0585c4314bf3ee956353ab9349234a650a8 100644
+index 2bb00a42492b08036e984d3e1d9a564d4b4226c2..1ee3e90ef754781b6f5e5739ab0c59cf2cc9d877 100644
 --- a/src/main/java/net/minecraft/server/MinecraftServer.java
 +++ b/src/main/java/net/minecraft/server/MinecraftServer.java
-@@ -1636,7 +1636,7 @@ public abstract class MinecraftServer extends IAsyncTaskHandlerReentrant<TickTas
+@@ -1646,7 +1646,7 @@ public abstract class MinecraftServer extends IAsyncTaskHandlerReentrant<TickTas
      }
  
      public String getServerModName() {
@@ -48,7 +48,7 @@ index 7cbbc1b1161f26f22a7f7832395af0d4a781cb1a..f588b0585c4314bf3ee956353ab93492
  
      public CrashReport b(CrashReport crashreport) {
 diff --git a/src/main/java/org/bukkit/craftbukkit/CraftServer.java b/src/main/java/org/bukkit/craftbukkit/CraftServer.java
-index aec6c036ed42078a6cc3540f1f6e46a551e87a2f..345f0b69bcf9631d72a9d3b1cc655a82d5d2db95 100644
+index 34b9fe484ba16193cfcb938cb0dc51b2066acc5f..d2f7e52cb1fa55c4bfe27c6a2042fe8241b9f28c 100644
 --- a/src/main/java/org/bukkit/craftbukkit/CraftServer.java
 +++ b/src/main/java/org/bukkit/craftbukkit/CraftServer.java
 @@ -232,7 +232,7 @@ import javax.annotation.Nullable; // Paper
