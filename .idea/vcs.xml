@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="VcsDirectoryMappings">
+    <mapping directory="" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Airplane" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Airplane/Airplane-API" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Airplane/Airplane-Server" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Airplane/Tuinity" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Airplane/Tuinity/Paper" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Airplane/Tuinity/Paper/work/BuildData" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Airplane/Tuinity/Paper/work/Bukkit" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Airplane/Tuinity/Paper/work/CraftBukkit" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Airplane/Tuinity/Paper/work/Paperclip" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Airplane/Tuinity/Paper/work/Spigot" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Airplane/Tuinity/Tuinity-API" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Airplane/Tuinity/Tuinity-Server" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Airplane/Tuinity/mc-dev" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/MyAirplaneFork-API" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/MyAirplaneFork-Server" vcs="Git" />
+  </component>
+</project>
