@@ -5,7 +5,7 @@ Subject: [PATCH] MyAirplaneFork branding
 
 
 diff --git a/pom.xml b/pom.xml
-index c917f825378dd16a329105b4e7fcc8882755bc5a..840855427e92b08de3ebcc23a8a5aeda10b17eff 100644
+index efa2ea6b8422f900643eb2f0f65cf067c034cea3..1cd91deffb55e31f6a1f11af69b1fa3aa17abcf0 100644
 --- a/pom.xml
 +++ b/pom.xml
 @@ -39,8 +39,8 @@
@@ -20,10 +20,10 @@ index c917f825378dd16a329105b4e7fcc8882755bc5a..840855427e92b08de3ebcc23a8a5aeda
              <scope>compile</scope>
          </dependency>
 diff --git a/src/main/java/com/destroystokyo/paper/PaperVersionFetcher.java b/src/main/java/com/destroystokyo/paper/PaperVersionFetcher.java
-index b9c5479e5561f8fe68ea8f94fbf4e64de8a53bf9..97c9afc2bc2a1e464eea9c3cfb68a020d945bc55 100644
+index 5460f57f0473868b3fb09c526a1767f717a2740e..3072ae4ab8fff7e53d1ff8b56fe762d14e3baea8 100644
 --- a/src/main/java/com/destroystokyo/paper/PaperVersionFetcher.java
 +++ b/src/main/java/com/destroystokyo/paper/PaperVersionFetcher.java
-@@ -28,8 +28,8 @@ public class PaperVersionFetcher implements VersionFetcher {
+@@ -29,8 +29,8 @@ public class PaperVersionFetcher implements VersionFetcher {
      @Nonnull
      @Override
      public Component getVersionMessage(@Nonnull String serverVersion) {
@@ -35,10 +35,10 @@ index b9c5479e5561f8fe68ea8f94fbf4e64de8a53bf9..97c9afc2bc2a1e464eea9c3cfb68a020
  
          return history != null ? TextComponent.ofChildren(updateMessage, Component.newline(), history) : updateMessage;
 diff --git a/src/main/java/net/minecraft/server/MinecraftServer.java b/src/main/java/net/minecraft/server/MinecraftServer.java
-index 2bb00a42492b08036e984d3e1d9a564d4b4226c2..1ee3e90ef754781b6f5e5739ab0c59cf2cc9d877 100644
+index 26f423d3fdc958764758573043310f84da08a08e..0c013dd8e17e84e9c006d61bbc9d3ca830c1cd6c 100644
 --- a/src/main/java/net/minecraft/server/MinecraftServer.java
 +++ b/src/main/java/net/minecraft/server/MinecraftServer.java
-@@ -1646,7 +1646,7 @@ public abstract class MinecraftServer extends IAsyncTaskHandlerReentrant<TickTas
+@@ -1650,7 +1650,7 @@ public abstract class MinecraftServer extends IAsyncTaskHandlerReentrant<TickTas
      }
  
      public String getServerModName() {
@@ -48,10 +48,10 @@ index 2bb00a42492b08036e984d3e1d9a564d4b4226c2..1ee3e90ef754781b6f5e5739ab0c59cf
  
      public CrashReport b(CrashReport crashreport) {
 diff --git a/src/main/java/org/bukkit/craftbukkit/CraftServer.java b/src/main/java/org/bukkit/craftbukkit/CraftServer.java
-index 34b9fe484ba16193cfcb938cb0dc51b2066acc5f..d2f7e52cb1fa55c4bfe27c6a2042fe8241b9f28c 100644
+index eab5bd32860d136864ca8f74be264236cf530910..6263352e543449fe1f62b7576f9b896e96caec4f 100644
 --- a/src/main/java/org/bukkit/craftbukkit/CraftServer.java
 +++ b/src/main/java/org/bukkit/craftbukkit/CraftServer.java
-@@ -232,7 +232,7 @@ import javax.annotation.Nullable; // Paper
+@@ -230,7 +230,7 @@ import javax.annotation.Nullable; // Paper
  import javax.annotation.Nonnull; // Paper
  
  public final class CraftServer implements Server {
