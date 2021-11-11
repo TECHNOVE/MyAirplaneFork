@@ -2,6 +2,8 @@
 
 A template project for forking Airplane!
 
+**NOTE: This is for 1.16 ONLY**
+
 ## Initial Setup
 
 Fork this repository to your own repo, then clone it locally. Once you've cloned it, you can setup the patches:
