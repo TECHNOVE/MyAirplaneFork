@@ -1,9 +1,7 @@
 MyAirplaneFork-API
 MyAirplaneFork-Server
 
-last-airplane
 build/
 .gradle/
 
-launcher-*.jar
-mcdevimports.json
+*.jar

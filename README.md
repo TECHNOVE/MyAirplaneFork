@@ -10,14 +10,14 @@ Fork this repository to your own repo, then clone it locally. Once you've cloned
 ```bash
 cd MyAirplaneFork
 ./gradlew applyPatches
-# or on windows (STRONGLY DISCOURAGED - see below)
-gradlew.bat applyPatches
+# or on windows 
+gradlew applyPatches
 ```
 
 This will set up the entire project, as once it's done everything will be ready to go!
 
 ### Windows
-Using Windows? Click [here](#step-by-step-guide-for-windows-using-wsl) to view the Windows Guide.
+Using Windows? Click [here](#step-by-step-guide-for-windows-using-wsl) to view the Windows Guide to install WSL (not required).
 
 ## Working on the fork
 
@@ -44,7 +44,7 @@ So if you want to create a new patch, just add a commit to either the API or Ser
 ```bash
 ./gradlew rebuildPatches
 # or on windows
-gradlew.bat rebuildPatches
+gradlew rebuildPatches
 ```
 
 This command takes your commits, and turns them back into the actual patch files that you push.
@@ -52,12 +52,7 @@ You should make sure that your fork never has the API and Server folders pushed,
 
 ## How do I update the upstream?
 
-This step is fairly easy, assuming there's no merge errors. To update the upstream (Airplane), all you have to do is run:
-
-```bash
-./gradlew updateUpstream
-# or on windows
-gradlew.bat updateUpstream
+This step is fairly easy, assuming there's no merge errors. To update the upstream (Airplane), all you have to do is change the `AirplaneCommit` in `gradle.properties`
 ```
 
 Then to rebuild the API & Server folders with your patches, just reapply them:
@@ -65,7 +60,7 @@ Then to rebuild the API & Server folders with your patches, just reapply them:
 ```bash
 ./gradlew applyPatches
 # or on windows
-gradlew.bat applyPatches
+gradlew applyPatches
 ```
 
 You may at times run into an merge conflict when applying patches, this happens when 2 patches modify similar areas of code, and the system can't figure out how to make them work together.
@@ -83,7 +78,7 @@ Once all your patches apply successfully, all you have to do is make sure you're
 ```bash
 ./gradlew rebuildPatches
 # or on windows
-gradlew.bat rebuildPatches
+gradlew rebuildPatches
 ```
 
 Finally, you have two options for making the commit:
@@ -91,16 +86,6 @@ Finally, you have two options for making the commit:
 ```bash
 git add --all
 git commit -m 'Description of my changes'
-```
-
-Or if you want a fancy commit message that lists the upstream changes, you can just run
-
-```bash
-git add --all
-
-./gradlew upstreamCommit
-# or on windows
-gradlew.bat upstreamCommit
 ```
 
 With that, you've successfully updated your fork!
@@ -112,20 +97,20 @@ If you're just building the fork to test, you can run:
 ```bash
 ./gradlew build
 # or on windows
-gradlew.bat build
+gradlew build
 ```
 
-Which will output your final JAR at `MyAirplaneFork-Server/build/libs/myairplanefork-server-1.16.5-R0.1-SNAPSHOT.jar`.
+Which will output your final JAR at `MyAirplaneFork-Server/build/libs/MyAirplaneFork-Server-reobf.jar`.
 However, you should not distribute this JAR outside testing because it contains Mojang's copyrighted Minecraft code.
 Instead, you can use the following command to generate a JAR that downloads Mojang's server when it's ran, and applies your changes on top:
 
 ```bash
-./gradlew paperclip
+./gradlew paperclipJar
 # or on windows
-gradle.bat paperclip
+gradlew paperclipJar
 ```
 
-This will output your distributable JAR at `launcher-myairplanefork.jar`, right in your main directory!
+This will output your distributable JAR at `myairplanefork-paperclip.jar`, right in your main directory!
 
 # Step-by-Step Guide for Windows using WSL
 This is a step-by-step guide on how to fork Airplane on Windows with WSL. You should still read the above information to get to grips with how to patch the plugin, however.
@@ -151,6 +136,7 @@ $ apt install -y curl git default-jdk
 ### Configure Git
 If you use GitHub/GitLab you should make your user.email the primary email of that account. 
 ```bash
+$ git config --global core.longpaths true (only if youre using windows without wsl)
 $ git config --global user.name "YOUR NAME"
 $ git config --global user.email your@email.com
 ```
@@ -174,6 +160,8 @@ This is quite an intensive operation, and can take several minutes (up to 30 in 
 
 ```bash
 $ ./gradlew applyPatches
+# or on windows
+gradlew applyPatches
 ```
 
 ## 4. Done!
@@ -189,23 +177,14 @@ IntelliJ IDEA 2021.1 added support natively for WSL projects - without this vers
 
 If you need help with any of this or run into issues, feel free to ask questions in the Airplane Discord located here: https://discord.gg/3gtc45q
 
-
-## Additional Info
-
-### Using an IDE
-
-I personally recommend IntelliJ as my IDE of choice, but there's one thing you have to make sure not to do.
-Our build system is [Toothpick](https://github.com/jpenilla/Toothpick), put together by the amazing [Purpur](https://github.com/pl3xgaming/Purpur) team.
-Unlike other forks, this system uses Gradle instead of Maven. 
-Inside the Server folder however, you will still find a `pom.xml` that IntelliJ may try to import. If it does, make sure to unlink the Maven project and doublecheck that the Gradle project is imported
-
 ### Changing Branding
 
 This won't be a comprehensive guide, but if you need to change branding you should go to these places:
 
-- build.gradle.kts (forkName, groupId, forkUrl, paperclipName)
-- settings.gradle.kts (forkName)
-- MyAirplaneFork-Server/pom.xml (API dependency)
+- build.gradle.kts (archiveFileName.set, apiOutputDir.set, serverOutputDir.set, serverProject.set)
+- settings.gradle.kts (rootProject.name , include)
+- gradle.properties (group)
+- MyAirplaneFork-Server/build.gradle.kts (API dependency)
 - PaperVersionFinder.java (change GitHub repo)
 - MinecraftServer.java (getServerModName)
 - CraftServer.java (serverName)
